@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "tsnd --respawn --transpile-only ./2021/src/index.ts"
   },
   "keywords": [],
   "author": "",
@@ -18,7 +18,7 @@
     "eslint-plugin-jsdoc": "^37.0.3",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.5.0",
-    "ts-node": "^10.4.0",
+    "ts-node-dev": "^1.1.8",
     "typescript": "^4.5.2"
   }
 }
