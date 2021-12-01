@@ -5,21 +5,20 @@
   },
   "plugins": [
     "@typescript-eslint",
-    "prettier",
-    "node"
+    "prettier"
   ],
   "extends": [
     "airbnb-base",
     "airbnb-typescript/base",
     "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended",
-    "plugin:node/recommended"
+    "plugin:prettier/recommended"
   ],
   "rules": {
     "no-tabs": "error",
     "quotes": [
       "error",
       "backtick"
-    ]
+    ],
+    "no-console": "off"
   }
 }
