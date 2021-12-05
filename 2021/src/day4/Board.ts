@@ -114,8 +114,6 @@ export default class Board {
   static getSumOfUnmarked(win: WinObj, gameBoard: Board): number {
     let sum = 0;
 
-    console.log(win);
-    console.log(gameBoard.columns);
     gameBoard.rows.forEach((row) => {
       row.forEach((square) => {
         if (!square.isMarked) {
