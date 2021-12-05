@@ -46,11 +46,47 @@ function partOne(input: string[], calledNumbers: number[]) {
   const winningBoard = iterateCalledNumbers(gameBoards, calledNumbers);
   assert(winningBoard.lastCalledNumber);
   assert(winningBoard.boardIndex);
-  const sum = Board.getSumOfUnmarked(
-    winningBoard,
-    gameBoards[winningBoard.boardIndex]
-  );
+  const sum = Board.getSumOfUnmarked(gameBoards[winningBoard.boardIndex]);
   console.log(`Answer: ${sum * winningBoard.lastCalledNumber}`);
+}
+
+function iterateForLastWin(gameBoards: Board[], calledNumbers: number[]) {
+  let result;
+  let boardsYetToWin;
+
+  for (let i = 0; i < calledNumbers.length; i += 1) {
+    for (let j = 0; j < gameBoards.length; j += 1) {
+      gameBoards[j].markSquare(calledNumbers[i], true);
+      result = gameBoards[j].checkForWinCondition();
+      if (result.win) {
+        boardsYetToWin = gameBoards.filter((board) => !board.hasWon);
+        if (boardsYetToWin.length === 1) {
+          return boardsYetToWin;
+        }
+      }
+    }
+  }
+
+  return [];
+}
+
+function partTwo(input: string[], calledNumbers: number[]) {
+  const gameBoards: Board[] = [];
+  while (input.length > 0) {
+    gameBoards.push(makeGameBoard(input));
+  }
+
+  // Find the board which will win last
+  const lastToWin = iterateForLastWin(gameBoards, calledNumbers);
+
+  // Pass it to the original function to calculate its actual value when it wins
+  const final = iterateCalledNumbers(lastToWin, calledNumbers);
+
+  // Get the sum of the unmarked spaces
+  const sum = Board.getSumOfUnmarked(lastToWin[0]);
+
+  assert(final.lastCalledNumber);
+  console.log(`Answer ${sum * final.lastCalledNumber}`);
 }
 
 export default function runDay() {
@@ -60,6 +96,9 @@ export default function runDay() {
     .split(`,`)
     .map((x) => Number(x));
 
+  const input2 = input.map((x) => x);
+  const calledNumbers2 = calledNumbers.map((x) => x);
+
   partOne(input, calledNumbers);
-  // partTwo(input);
+  partTwo(input2, calledNumbers2);
 }

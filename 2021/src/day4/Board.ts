@@ -14,9 +14,12 @@ export default class Board {
 
   columns: Square[][];
 
+  hasWon: boolean;
+
   constructor() {
     this.rows = [];
     this.columns = [];
+    this.hasWon = false;
   }
 
   addRow(row: string) {
@@ -81,6 +84,7 @@ export default class Board {
     // check rows
     for (let i = 0; i < this.rows.length; i += 1) {
       if (this.rows[i].every((square) => square.isMarked)) {
+        this.hasWon = true;
         return {
           win: true,
           index: i,
@@ -92,6 +96,7 @@ export default class Board {
     // check columns
     for (let i = 0; i < this.columns.length; i += 1) {
       if (this.columns[i].every((square) => square.isMarked)) {
+        this.hasWon = true;
         return {
           win: true,
           index: i,
@@ -111,7 +116,7 @@ export default class Board {
       .map((value) => new Square(Number(value)));
   }
 
-  static getSumOfUnmarked(win: WinObj, gameBoard: Board): number {
+  static getSumOfUnmarked(gameBoard: Board): number {
     let sum = 0;
 
     gameBoard.rows.forEach((row) => {
