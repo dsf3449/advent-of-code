@@ -1,3 +1,3 @@
-import runDay from "./day3/day3";
+import runDay from "./day4/day4";
 
 runDay();
