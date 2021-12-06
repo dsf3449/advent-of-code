@@ -14,7 +14,7 @@ export default class Board {
 
   extractPointsFromLinesAndAddToClusterWithNoDuplicates() {
     this.lines.forEach((line) => {
-      if (line.lineStyle === `generic`) {
+      if (line.lineStyle === `other`) {
         return;
       }
       this.safelyAddPointToCluster(line.startPoint);

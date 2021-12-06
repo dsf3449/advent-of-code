@@ -13,15 +13,39 @@ export default class Line {
     | `horizontal`
     | `generic`
     | `invVertical`
-    | `invHorizontal`;
+    | `invHorizontal`
+    | `-rise`
+    | `-run`
+    | `-riserun`
+    | `+riserun`
+    | `other`;
 
   pointCluster: Point[] = [];
 
   constructor(startPoint: Point, endPoint: Point) {
     this.startPoint = startPoint;
     this.endPoint = endPoint;
-    this.slope = (endPoint.y - startPoint.y) / (endPoint.x - startPoint.x);
-    this.lineStyle = this.setLineStyle();
+
+    const rise = endPoint.y - startPoint.y;
+    const run = endPoint.x - startPoint.x;
+    this.slope = rise / run;
+
+    if (this.slope === -1) {
+      if (rise < 0) {
+        this.lineStyle = `-rise`;
+      } else {
+        this.lineStyle = `-run`;
+      }
+    } else if (this.slope === 1) {
+      if (rise < 0 && run < 0) {
+        this.lineStyle = `-riserun`;
+      } else {
+        this.lineStyle = `+riserun`;
+      }
+    } else {
+      this.lineStyle = this.setLineStyle();
+    }
+
     this.fillPoints(startPoint, endPoint);
   }
 
@@ -37,7 +61,7 @@ export default class Line {
       case 0:
         return `horizontal`;
       default:
-        return `generic`;
+        return `other`;
     }
   }
 
@@ -64,6 +88,38 @@ export default class Line {
       case `invHorizontal`: {
         for (let i = startPoint.x - 1; i > endPoint.x; i -= 1) {
           this.pointCluster.push(new Point(i, endPoint.y));
+        }
+        break;
+      }
+      case `+riserun`: {
+        let updatedX = endPoint.x;
+        for (let i = endPoint.y - 1; i > startPoint.y; i -= 1) {
+          updatedX -= 1;
+          this.pointCluster.push(new Point(updatedX, i));
+        }
+        break;
+      }
+      case `-riserun`: {
+        let updatedX = endPoint.x;
+        for (let i = endPoint.y + 1; i < startPoint.y; i += 1) {
+          updatedX += 1;
+          this.pointCluster.push(new Point(updatedX, i));
+        }
+        break;
+      }
+      case `-rise`: {
+        let updatedX = startPoint.x;
+        for (let i = startPoint.y - 1; i > endPoint.y; i -= 1) {
+          updatedX += 1;
+          this.pointCluster.push(new Point(updatedX, i));
+        }
+        break;
+      }
+      case `-run`: {
+        let updatedX = startPoint.x;
+        for (let i = startPoint.y + 1; i < endPoint.y; i += 1) {
+          updatedX -= 1;
+          this.pointCluster.push(new Point(updatedX, i));
         }
         break;
       }

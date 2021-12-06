@@ -81,7 +81,7 @@ describe(`Day 5 tests`, () => {
       expect(line.startPoint).toEqual(start);
       expect(line.endPoint).toEqual(end);
       expect(line.slope).toBe(1.25);
-      expect(line.lineStyle).toBe(`generic`);
+      expect(line.lineStyle).toBe(`other`);
     });
 
     it(`should correctly identify a horizontal line`, () => {
@@ -114,17 +114,66 @@ describe(`Day 5 tests`, () => {
       expect(line.pointCluster).toEqual([new Point(5, 8), new Point(5, 7)]);
     });
 
-    it(`should not fill points for a generic line`, () => {
+    it(`should fill points for a line with slope 1 (-rise, -run)`, () => {
+      const start = new Point(6, 4);
+      const end = new Point(2, 0);
+      const line = new Line(start, end);
+      expect(line.lineStyle).toBe(`-riserun`);
+      expect(line.pointCluster).toEqual([
+        new Point(3, 1),
+        new Point(4, 2),
+        new Point(5, 3),
+      ]);
+    });
+
+    it(`should fill points for a line with slope 1 (+rise, +run)`, () => {
+      const start = new Point(0, 0);
+      const end = new Point(4, 4);
+      const line = new Line(start, end);
+      expect(line.lineStyle).toBe(`+riserun`);
+      expect(line.pointCluster).toEqual([
+        new Point(3, 3),
+        new Point(2, 2),
+        new Point(1, 1),
+      ]);
+    });
+
+    it(`should fill points for a line with slope -1 (-rise, +run)`, () => {
+      const start = new Point(5, 5);
+      const end = new Point(8, 2);
+      const line = new Line(start, end);
+      expect(line.lineStyle).toBe(`-rise`);
+      expect(line.pointCluster).toEqual([new Point(6, 4), new Point(7, 3)]);
+    });
+
+    it(`should fill points for a line with slope -1 (+rise, -run)`, () => {
+      const start = new Point(4, 0);
+      const end = new Point(0, 4);
+      const line = new Line(start, end);
+      expect(line.lineStyle).toBe(`-run`);
+      expect(line.pointCluster).toEqual([
+        new Point(3, 1),
+        new Point(2, 2),
+        new Point(1, 3),
+      ]);
+    });
+
+    it(`should not fill points for a line with type other`, () => {
       const start = new Point(3, 4);
       const end = new Point(7, 9);
       const line = new Line(start, end);
+      expect(line.slope).toBe(1.25);
+      expect(line.lineStyle).toBe(`other`);
       expect(line.pointCluster).toEqual([]);
     });
   });
 
   describe(`e2e`, () => {
     it(`should take the test input and output the correct result`, () => {
-      expect(runDay().partOne).toBe(5);
+      const run = runDay();
+      // now 12 because I don't want to re-break this to mock part 1
+      expect(run.partOne).toBe(12);
+      expect(run.partTwo).toBe(12);
     });
   });
 });
