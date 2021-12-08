@@ -1,3 +1,3 @@
-import runDay from "./day6/day6";
+import runDay from "./day7/day7";
 
-runDay(2, 256);
+console.log(runDay(2));
