@@ -18,5 +18,11 @@ describe(`Day 7 tests`, () => {
       const run = runDay(2);
       expect(run.partTwo).toBe(168);
     });
+
+    it(`should take the test input and return the correct value for both days`, () => {
+      const run = runDay(0);
+      expect(run.partOne).toBe(37);
+      expect(run.partTwo).toBe(168);
+    });
   });
 });
