@@ -10,3 +10,8 @@ export default function getPuzzleInput(day: string): string[] {
     `\n`
   );
 }
+
+export interface AnswerPair {
+  partOne?: number;
+  partTwo?: number;
+}
