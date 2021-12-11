@@ -1,7 +1,12 @@
-# Advent of Code
-![](https://img.shields.io/badge/day%20📅-10-blue)
-![](https://img.shields.io/badge/stars%20⭐-18-yellow)
-![](https://img.shields.io/badge/days%20completed-9-red)
+<div align="center">
+  <h1>Advent of Code</h1>
+  <p>
+    <img src="https://img.shields.io/badge/day%20📅-10-blue"  alt="Current Day"/>
+    <img src="https://img.shields.io/badge/stars%20⭐-18-yellow" alt="Stars Obtained" />
+    <img src="https://img.shields.io/badge/days%20completed-9-red" alt="Days Completed" />
+    <a href="https://circleci.com/gh/dsf3449/advent-of-code"><img src="https://circleci.com/gh/dsf3449/advent-of-code.svg?style=shield" alt="Test Status" /></a>
+  </p>
+</div>
 
 The repo where I keep my answers of the Advent of Code challenge that happens every year!
 
