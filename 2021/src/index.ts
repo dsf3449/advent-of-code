@@ -1,3 +1,3 @@
-import runDay from "./day10/day10";
+import runDay from "./day11/day11";
 
 console.log(runDay(2));
