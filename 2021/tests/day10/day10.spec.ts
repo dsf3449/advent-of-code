@@ -1,4 +1,7 @@
-import runDay, { searchForCorruptedPair } from "../../src/day10/day10";
+import runDay, {
+  findOpenersWithNoClosers,
+  searchForCorruptedPair,
+} from "../../src/day10/day10";
 
 describe(`Day 10 tests`, () => {
   describe(`gen`, () => {
@@ -11,6 +14,11 @@ describe(`Day 10 tests`, () => {
       const input = `[][]{}<><<<<<{{{{{}}}}}>>>>>`;
       expect(searchForCorruptedPair(input, 0, [])).toBe(``);
     });
+
+    it(`should return an array of values left open`, () => {
+      const input = `{<{}>{}}<[`;
+      expect(findOpenersWithNoClosers(input, 0, [])).toEqual([`<`, `[`]);
+    });
   });
 
   describe(`e2e`, () => {
@@ -19,15 +27,15 @@ describe(`Day 10 tests`, () => {
       expect(run.partOne).toBe(26397);
     });
 
-    it.skip(`should take the test input and return the correct value`, () => {
+    it(`should take the test input and return the correct value`, () => {
       const run = runDay(2);
-      expect(run.partTwo).toBe(1134);
+      expect(run.partTwo).toBe(288957);
     });
 
-    it.skip(`should take the test input and return the correct value for both days`, () => {
+    it(`should take the test input and return the correct value for both days`, () => {
       const run = runDay(0);
-      expect(run.partOne).toBe(15);
-      expect(run.partTwo).toBe(1134);
+      expect(run.partOne).toBe(26397);
+      expect(run.partTwo).toBe(288957);
     });
   });
 });
