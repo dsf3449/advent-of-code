@@ -1,0 +1,13 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@4.9.0
+
+workflows:
+  test:
+    jobs:
+      - node/test:
+          # https://circleci.com/developer/images/image/cimg/node
+          version: '16.6.2'
+          pkg-manager: npm
+          test-results-for: jest
