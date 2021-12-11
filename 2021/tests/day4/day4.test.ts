@@ -1,7 +1,7 @@
 import Board from "../../src/day4/Board";
 
 describe(`Board tests`, () => {
-  it.skip(`desc`, () => {
+  it(`desc`, () => {
     const test = new Board();
     // test.addRow(input[1]);
     // test.addRow(input[2]);
