@@ -7,6 +7,10 @@ workflows:
   test:
     jobs:
       - node/test:
+          filters:
+            branches:
+              only:
+                - master
           # https://circleci.com/developer/images/image/cimg/node
           version: '16.6.2'
           pkg-manager: npm
