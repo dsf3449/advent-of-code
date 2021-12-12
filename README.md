@@ -1,7 +1,7 @@
 <div align="center">
   <h1>Advent of Code</h1>
   <p>
-    <img src="https://img.shields.io/badge/day%20📅-11-blue"  alt="Current Day"/>
+    <img src="https://img.shields.io/badge/day%20📅-12-blue"  alt="Current Day"/>
     <img src="https://img.shields.io/badge/stars%20⭐-22-yellow" alt="Stars Obtained" />
     <img src="https://img.shields.io/badge/days%20completed-11-red" alt="Days Completed" />
     <a href="https://circleci.com/gh/dsf3449/advent-of-code"><img src="https://circleci.com/gh/dsf3449/advent-of-code.svg?style=shield" alt="Test Status" /></a>
