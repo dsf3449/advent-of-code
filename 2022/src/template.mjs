@@ -4,4 +4,4 @@ function handle(input) {
   console.log(input);
 }
 
-getPuzzleInputRel(import.meta.url, false).then(handle);
+getPuzzleInputRel(import.meta.url, true).then(handle);
