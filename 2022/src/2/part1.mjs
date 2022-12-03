@@ -1,4 +1,4 @@
-import { getPuzzleInput } from "../utils.mjs";
+import { getPuzzleInputRel } from "../utils.mjs";
 
 // left column: opponent
 // right column: me
@@ -60,4 +60,4 @@ function handle(input) {
   console.log(score);
 }
 
-getPuzzleInput(2, false).then(handle);
+getPuzzleInputRel(import.meta.url, false).then(handle);

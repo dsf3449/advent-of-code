@@ -1,4 +1,4 @@
-import { getPuzzleInput } from "../utils.mjs";
+import { getPuzzleInputRel } from "../utils.mjs";
 
 const UPPER_OFFSET = 38;
 const LOWER_OFFSET = 96;
@@ -29,4 +29,4 @@ function handle(input) {
   console.log(sum);
 }
 
-getPuzzleInput(3, false).then(handle);
+getPuzzleInputRel(import.meta.url, false).then(handle);

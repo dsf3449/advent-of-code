@@ -1,4 +1,4 @@
-import { getPuzzleInput } from "../utils.mjs";
+import { getPuzzleInputRel } from "../utils.mjs";
 import { orderBy } from "lodash-es";
 
 function handle(input) {
@@ -19,4 +19,4 @@ function handle(input) {
   console.log(ordered[0] + ordered[1] + ordered[2]);
 }
 
-getPuzzleInput(1, false).then(handle);
+getPuzzleInputRel(import.meta.url, false).then(handle);

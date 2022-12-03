@@ -29,3 +29,32 @@ export async function getPuzzleInput(day, useTestInput = false) {
   res.splice(-1);
   return res;
 }
+
+/**
+ * The same as `getPuzzleInput()`, except that it automatically finds the day
+ * based on the relative path of the calling module.
+ * @param {string} filePath
+ * @param {boolean} useTestInput
+ * @returns {Promise<string[]>}
+ */
+export async function getPuzzleInputRel(filePath, useTestInput = false) {
+  const fileURL = fileURLToPath(filePath);
+  const dirName = dirname(fileURL);
+  const day = dirName.slice(-1);
+
+  const input = await readFile(
+    resolve(
+      __dirname,
+      useTestInput
+        ? `../inputs/${day}/input-test.txt`
+        : `../inputs/${day}/input.txt`
+    ),
+    { encoding: `utf8` }
+  );
+
+  const res = input.split(`\n`);
+
+  // remove newline at the end of the input
+  res.splice(-1);
+  return res;
+}

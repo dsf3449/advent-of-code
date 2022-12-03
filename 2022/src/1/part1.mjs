@@ -1,4 +1,4 @@
-import { getPuzzleInput } from "../utils.mjs";
+import { getPuzzleInputRel } from "../utils.mjs";
 
 function handle(input) {
   const calorieSums = [];
@@ -17,4 +17,4 @@ function handle(input) {
   console.log(Math.max(...calorieSums));
 }
 
-getPuzzleInput(1, false).then(handle);
+getPuzzleInputRel(import.meta.url, false).then(handle);
