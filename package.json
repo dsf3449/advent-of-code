@@ -1,0 +1,16 @@
+{
+  "name": "advent-of-code",
+  "version": "0.0.3",
+  "description": "",
+  "main": "src/index.mjs",
+  "type": "module",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^8.28.0",
+    "prettier": "^2.8.0"
+  }
+}
