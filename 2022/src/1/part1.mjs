@@ -4,7 +4,7 @@ function handle(input) {
   const calorieSums = [];
 
   let runningSum = 0;
-  input.forEach(line => {
+  input.forEach((line) => {
     if (line === ``) {
       calorieSums.push(runningSum);
       runningSum = 0;
