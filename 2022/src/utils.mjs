@@ -58,3 +58,13 @@ export async function getPuzzleInputRel(filePath, useTestInput = false) {
   res.splice(-1);
   return res;
 }
+
+/**
+ * Returns true if the provided file path is NOT the entry file (aka, it's
+ * an imported module).
+ * @param {string} filePath
+ * @returns {boolean}
+ */
+export function isImported(filePath) {
+  return process.argv?.[1] !== fileURLToPath(filePath);
+}
