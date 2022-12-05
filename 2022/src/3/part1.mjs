@@ -13,7 +13,7 @@ function getPriorityForLetter(letter) {
 function handle(input) {
   let sum = 0;
 
-  input.forEach((rucksack) => {
+  input.forEach(rucksack => {
     if (rucksack.length % 2 !== 0) {
       console.error(`!! not evenly divisible !!`);
       return;

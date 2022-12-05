@@ -3,10 +3,10 @@ import { getPuzzleInputRel } from "../utils.mjs";
 function handle(input) {
   let overlap = 0;
 
-  input.forEach((pair) => {
+  input.forEach(pair => {
     const [first, second] = pair
       .split(`,`)
-      .map((range) => range.split(`-`).map(Number));
+      .map(range => range.split(`-`).map(Number));
 
     if (
       (first[0] <= second[0] && first[1] >= second[1]) ||

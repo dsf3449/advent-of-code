@@ -46,7 +46,7 @@ const resolve = {
 function handle(input) {
   let score = 0;
 
-  input.forEach((round) => {
+  input.forEach(round => {
     const [opp, me] = round.split(` `);
     score += resolve[me][opp];
   });
