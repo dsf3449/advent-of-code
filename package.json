@@ -7,7 +7,7 @@
   "scripts": {
     "newday": "node ./2022/src/make-new-day.mjs",
     "prettier:check": "prettier --check ./2022/src/*/*",
-    "prettier:write": "prettier --check ./2022/src/*/*"
+    "prettier:write": "prettier --write ./2022/src/*/*"
   },
   "keywords": [],
   "author": "",
