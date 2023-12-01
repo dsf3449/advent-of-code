@@ -5,9 +5,9 @@
   "main": "src/index.mjs",
   "type": "module",
   "scripts": {
-    "newday": "node ./2022/src/make-new-day.mjs",
-    "prettier:check": "prettier --check ./2022/src/*/*",
-    "prettier:write": "prettier --write ./2022/src/*/*"
+    "newday": "node ./2023/src/make-new-day.mjs",
+    "prettier:check": "prettier --check ./2023/src/*/*",
+    "prettier:write": "prettier --write ./2023/src/*/*"
   },
   "keywords": [],
   "author": "",
