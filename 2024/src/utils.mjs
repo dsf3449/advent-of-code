@@ -18,9 +18,9 @@ export async function getPuzzleInput(day, useTestInput = false) {
       __dirname,
       useTestInput
         ? `../inputs/${day}/input-test.txt`
-        : `../inputs/${day}/input.txt`
+        : `../inputs/${day}/input.txt`,
     ),
-    { encoding: `utf8` }
+    { encoding: `utf8` },
   );
 
   const res = input.split(`\n`);
@@ -47,9 +47,9 @@ export async function getPuzzleInputRel(filePath, useTestInput = false) {
       __dirname,
       useTestInput
         ? `../inputs/${day}/input-test.txt`
-        : `../inputs/${day}/input.txt`
+        : `../inputs/${day}/input.txt`,
     ),
-    { encoding: `utf8` }
+    { encoding: `utf8` },
   );
 
   const res = input.split(`\n`);
