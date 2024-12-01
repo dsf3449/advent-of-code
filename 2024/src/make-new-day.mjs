@@ -12,24 +12,24 @@ async function go() {
   await copyFile(
     `./2023/src/template.mjs`,
     `./2023/src/${now.day}/part1.mjs`,
-    constants.COPYFILE_EXCL
+    constants.COPYFILE_EXCL,
   );
   await copyFile(
     `./2023/src/template.mjs`,
     `./2023/src/${now.day}/part2.mjs`,
-    constants.COPYFILE_EXCL
+    constants.COPYFILE_EXCL,
   );
   const resp = await fetch(
-    `https://adventofcode.com/2023/day/${now.day}/input`,
+    `https://adventofcode.com/2024/day/${now.day}/input`,
     {
       headers: {
         cookie: `session=${process.env.AOC_SESSION}`,
       },
-    }
+    },
   );
   const input = await resp.text();
-  await writeFile(`./2023/inputs/${now.day}/input.txt`, input);
-  await writeFile(`./2023/inputs/${now.day}/input-test.txt`, ``);
+  await writeFile(`./2024/inputs/${now.day}/input.txt`, input);
+  await writeFile(`./2024/inputs/${now.day}/input-test.txt`, ``);
 }
 
 go();
